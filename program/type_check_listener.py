@@ -72,6 +72,13 @@ class TypeCheckListener(SimpleLangListener):
     right_type = self.types[ctx.expr(1)]
     if not self.is_valid_arithmetic_operation(left_type, right_type):
         self.errors.append(f"Unsupported operand types for **: {left_type} and {right_type}")
+        return
+
+    if isinstance(left_type, IntType) and isinstance(right_type, IntType):
+        if isinstance(ctx.expr(1), SimpleLangParser.IntContext):
+            self.types[ctx] = IntType()
+            return
+    self.types[ctx] = FloatType()
     self.types[ctx] = FloatType() if isinstance(left_type, FloatType) or isinstance(right_type, FloatType) else IntType()
 
   def _is_number(self, t):
