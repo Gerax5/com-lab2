@@ -1,3 +1,12 @@
+# Laboratorio 2 Integrantes
+
+- Gerardo Pineda 22880
+
+## Recursos extra
+
+Analisis: [pdf](./Analsis%20lab%202.pdf)  
+Video: [video](link)
+
 # 🧪 Laboratorio 2: Sistema de Tipos con ANTLR
 
 ## 📋 Descripción General
@@ -6,7 +15,7 @@ En este laboratorio trabajarás con **ANTLR**, un generador de analizadores sint
 
 Experimentarás con un sistema de tipos básico, extenderás una gramática y completarás el sistema de tipos. Con ello, aprenderás sobre la marcha lo básico al utilizar sistemas de tipos en el análisis semántico.
 
-* **Modalidad: Individual**
+- **Modalidad: Individual**
 
 ## 🧰 Instrucciones de Configuración
 
@@ -15,18 +24,21 @@ Experimentarás con un sistema de tipos básico, extenderás una gramática y co
    ```bash
    docker build --rm . -t lab2-image && docker run --rm -ti -v "$(pwd)/program":/program lab2-image
    ```
+
 2. **Entender el Entorno**
 
    - El directorio `program` se monta dentro del contenedor.
    - Este contiene la **gramática de ANTLR**, un archivo `Driver.py` (punto de entrada principal) y un archivo `program_test.txt` (entrada de prueba).
    - En este caso usamos un Visitor para visitar los nodos del árbol y aplicar análisis semántico.
-   - También se  un Listener para este efecto.
+   - También se un Listener para este efecto.
+
 3. **Generar Archivos de Lexer y Parser:** Dentro del contenedor, compila la gramática ANTLR a Python con:
 
    ```bash
    antlr -Dlanguage=Python3 -visitor SimpleLang.g4			*** Esto es para utilizar un Visitor ***
    antlr -Dlanguage=Python3 -listener SimpleLang.g4		*** Y esto es para utilizar un Listener ***
    ```
+
 4. **Ejecutar el Analizador**
    Usa el driver para analizar el archivo de prueba:
 
