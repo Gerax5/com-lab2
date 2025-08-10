@@ -10,20 +10,20 @@ else:
 
 def serializedATN():
     return [
-        4,1,13,40,2,0,7,0,2,1,7,1,2,2,7,2,1,0,4,0,8,8,0,11,0,12,0,9,1,1,
+        4,1,14,40,2,0,7,0,2,1,7,1,2,2,7,2,1,0,4,0,8,8,0,11,0,12,0,9,1,1,
         1,1,1,1,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,3,2,24,8,2,1,2,1,2,1,
         2,1,2,1,2,1,2,1,2,1,2,1,2,5,2,35,8,2,10,2,12,2,38,9,2,1,2,0,1,4,
-        3,0,2,4,0,2,1,0,2,3,1,0,4,5,44,0,7,1,0,0,0,2,11,1,0,0,0,4,23,1,0,
+        3,0,2,4,0,2,1,0,2,4,1,0,5,6,44,0,7,1,0,0,0,2,11,1,0,0,0,4,23,1,0,
         0,0,6,8,3,2,1,0,7,6,1,0,0,0,8,9,1,0,0,0,9,7,1,0,0,0,9,10,1,0,0,0,
-        10,1,1,0,0,0,11,12,3,4,2,0,12,13,5,12,0,0,13,3,1,0,0,0,14,15,6,2,
-        -1,0,15,24,5,8,0,0,16,24,5,9,0,0,17,24,5,10,0,0,18,24,5,11,0,0,19,
-        20,5,6,0,0,20,21,3,4,2,0,21,22,5,7,0,0,22,24,1,0,0,0,23,14,1,0,0,
-        0,23,16,1,0,0,0,23,17,1,0,0,0,23,18,1,0,0,0,23,19,1,0,0,0,24,36,
-        1,0,0,0,25,26,10,8,0,0,26,27,5,1,0,0,27,35,3,4,2,9,28,29,10,7,0,
-        0,29,30,7,0,0,0,30,35,3,4,2,8,31,32,10,6,0,0,32,33,7,1,0,0,33,35,
-        3,4,2,7,34,25,1,0,0,0,34,28,1,0,0,0,34,31,1,0,0,0,35,38,1,0,0,0,
-        36,34,1,0,0,0,36,37,1,0,0,0,37,5,1,0,0,0,38,36,1,0,0,0,4,9,23,34,
-        36
+        10,1,1,0,0,0,11,12,3,4,2,0,12,13,5,13,0,0,13,3,1,0,0,0,14,15,6,2,
+        -1,0,15,24,5,9,0,0,16,24,5,10,0,0,17,24,5,11,0,0,18,24,5,12,0,0,
+        19,20,5,7,0,0,20,21,3,4,2,0,21,22,5,8,0,0,22,24,1,0,0,0,23,14,1,
+        0,0,0,23,16,1,0,0,0,23,17,1,0,0,0,23,18,1,0,0,0,23,19,1,0,0,0,24,
+        36,1,0,0,0,25,26,10,8,0,0,26,27,5,1,0,0,27,35,3,4,2,9,28,29,10,7,
+        0,0,29,30,7,0,0,0,30,35,3,4,2,8,31,32,10,6,0,0,32,33,7,1,0,0,33,
+        35,3,4,2,7,34,25,1,0,0,0,34,28,1,0,0,0,34,31,1,0,0,0,35,38,1,0,0,
+        0,36,34,1,0,0,0,36,37,1,0,0,0,37,5,1,0,0,0,38,36,1,0,0,0,4,9,23,
+        34,36
     ]
 
 class SimpleLangParser ( Parser ):
@@ -36,12 +36,13 @@ class SimpleLangParser ( Parser ):
 
     sharedContextCache = PredictionContextCache()
 
-    literalNames = [ "<INVALID>", "'**'", "'*'", "'/'", "'+'", "'-'", "'('", 
-                     "')'" ]
+    literalNames = [ "<INVALID>", "'**'", "'*'", "'/'", "'%'", "'+'", "'-'", 
+                     "'('", "')'" ]
 
     symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "INT", "FLOAT", "STRING", "BOOL", "NEWLINE", "WS" ]
+                      "<INVALID>", "INT", "FLOAT", "STRING", "BOOL", "NEWLINE", 
+                      "WS" ]
 
     RULE_prog = 0
     RULE_stat = 1
@@ -57,12 +58,13 @@ class SimpleLangParser ( Parser ):
     T__4=5
     T__5=6
     T__6=7
-    INT=8
-    FLOAT=9
-    STRING=10
-    BOOL=11
-    NEWLINE=12
-    WS=13
+    T__7=8
+    INT=9
+    FLOAT=10
+    STRING=11
+    BOOL=12
+    NEWLINE=13
+    WS=14
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -117,7 +119,7 @@ class SimpleLangParser ( Parser ):
                 self.state = 9 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & 3904) != 0)):
+                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & 7808) != 0)):
                     break
 
         except RecognitionException as re:
@@ -365,7 +367,7 @@ class SimpleLangParser ( Parser ):
             self.state = 23
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [8]:
+            if token in [9]:
                 localctx = SimpleLangParser.IntContext(self, localctx)
                 self._ctx = localctx
                 _prevctx = localctx
@@ -373,37 +375,37 @@ class SimpleLangParser ( Parser ):
                 self.state = 15
                 self.match(SimpleLangParser.INT)
                 pass
-            elif token in [9]:
+            elif token in [10]:
                 localctx = SimpleLangParser.FloatContext(self, localctx)
                 self._ctx = localctx
                 _prevctx = localctx
                 self.state = 16
                 self.match(SimpleLangParser.FLOAT)
                 pass
-            elif token in [10]:
+            elif token in [11]:
                 localctx = SimpleLangParser.StringContext(self, localctx)
                 self._ctx = localctx
                 _prevctx = localctx
                 self.state = 17
                 self.match(SimpleLangParser.STRING)
                 pass
-            elif token in [11]:
+            elif token in [12]:
                 localctx = SimpleLangParser.BoolContext(self, localctx)
                 self._ctx = localctx
                 _prevctx = localctx
                 self.state = 18
                 self.match(SimpleLangParser.BOOL)
                 pass
-            elif token in [6]:
+            elif token in [7]:
                 localctx = SimpleLangParser.ParensContext(self, localctx)
                 self._ctx = localctx
                 _prevctx = localctx
                 self.state = 19
-                self.match(SimpleLangParser.T__5)
+                self.match(SimpleLangParser.T__6)
                 self.state = 20
                 self.expr(0)
                 self.state = 21
-                self.match(SimpleLangParser.T__6)
+                self.match(SimpleLangParser.T__7)
                 pass
             else:
                 raise NoViableAltException(self)
@@ -443,7 +445,7 @@ class SimpleLangParser ( Parser ):
                         self.state = 29
                         localctx.op = self._input.LT(1)
                         _la = self._input.LA(1)
-                        if not(_la==2 or _la==3):
+                        if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 28) != 0)):
                             localctx.op = self._errHandler.recoverInline(self)
                         else:
                             self._errHandler.reportMatch(self)
@@ -462,7 +464,7 @@ class SimpleLangParser ( Parser ):
                         self.state = 32
                         localctx.op = self._input.LT(1)
                         _la = self._input.LA(1)
-                        if not(_la==4 or _la==5):
+                        if not(_la==5 or _la==6):
                             localctx.op = self._errHandler.recoverInline(self)
                         else:
                             self._errHandler.reportMatch(self)
