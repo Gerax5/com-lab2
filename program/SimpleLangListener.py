@@ -71,6 +71,15 @@ class SimpleLangListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by SimpleLangParser#Pow.
+    def enterPow(self, ctx:SimpleLangParser.PowContext):
+        pass
+
+    # Exit a parse tree produced by SimpleLangParser#Pow.
+    def exitPow(self, ctx:SimpleLangParser.PowContext):
+        pass
+
+
     # Enter a parse tree produced by SimpleLangParser#String.
     def enterString(self, ctx:SimpleLangParser.StringContext):
         pass

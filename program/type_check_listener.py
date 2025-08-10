@@ -28,6 +28,13 @@ class TypeCheckListener(SimpleLangListener):
       self.errors.append(f"Unsupported operand types for + or -: {left_type} and {right_type}")
     self.types[ctx] = FloatType() if isinstance(left_type, FloatType) or isinstance(right_type, FloatType) else IntType()
 
+  def exitPow(self, ctx: SimpleLangParser.PowContext):
+    left_type = self.types[ctx.expr(0)]
+    right_type = self.types[ctx.expr(1)]
+    if not self.is_valid_arithmetic_operation(left_type, right_type):
+        self.errors.append(f"Unsupported operand types for **: {left_type} and {right_type}")
+    self.types[ctx] = FloatType() if isinstance(left_type, FloatType) or isinstance(right_type, FloatType) else IntType()
+
   def enterInt(self, ctx: SimpleLangParser.IntContext):
     self.types[ctx] = IntType()
 
