@@ -1,11 +1,12 @@
 # Laboratorio 2 Integrantes
 
 - Gerardo Pineda 22880
+- Cesar Lopez 22535
 
 ## Recursos extra
 
 Analisis: [pdf](./Analsis%20lab%202.pdf)  
-Video: [video](link)
+Video: [video](https://youtu.be/S2CeXiaUirw)
 
 # 🧪 Laboratorio 2: Sistema de Tipos con ANTLR
 
